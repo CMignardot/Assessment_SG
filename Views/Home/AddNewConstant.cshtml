@@ -1,0 +1,22 @@
+﻿@model Constant
+
+@{
+    ViewData["Title"] = "Add a New Constant";
+}
+
+<h1 class="bg-info text-white">Add a New Constant</h1>
+<a class="btn btn-block btn-success" asp-action="ShowConstant">Show all Constants</a>
+
+<div class="text-danger" asp-validation-summary="All"></div>
+
+<form enctype="application/x-www-form-urlencoded" method="post">
+    <div>
+        <label>Name</label>
+        <input class="form-control-range" asp-for="Name" type="text" />
+        <label>Value</label>
+        <input class="form-control-range" asp-for="Value" type="number" /><br />
+        <label>Domain</label>
+        <input class="form-control-range" asp-for="Domain" type="text" />
+        <input class="btn btn-secondary" value="Add New" type="submit" />
+    </div>
+</form>

@@ -1,0 +1,40 @@
+﻿@model List<Constant>
+
+@{
+    ViewData["Title"] = "Constants";
+}
+
+<h1 class="bg-info text-white">Constants</h1>
+<a class="btn btn-block btn-success" asp-action="AddNewConstant">Add a New Constant</a>
+<div>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Domain</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            @foreach (Constant e in Model)
+            {
+                <tr>
+                    <td>@e.ConstantId</td>
+                    <td>@e.Name</td>
+                    <td>@e.Value</td>
+                    <td>@e.Domain</td>
+                    <td>
+                        <a asp-route-id="@e.ConstantId" class="btn btn-block btn-dark" asp-action="ModifyConstant">Edit</a>
+                    </td>
+                    <td>
+                        <form asp-route-id="@e.ConstantId" method="post" asp-action="RemoveConstant">
+                            <input class="btn-warning btn btn-block" value=”Remove” type="submit" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

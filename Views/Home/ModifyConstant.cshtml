@@ -1,0 +1,28 @@
+﻿@model Constant
+
+@{
+    ViewData["Title"] = "Modify a Constant";
+}
+
+<h1 class="bg-info text-white">Modify a Constant</h1>
+<a class="btn btn-block btn-success" asp-action="ShowConstant">Show all Constants</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="ConstantId">No.</label>
+        <input class="form-control-range" type="text" asp-for="ConstantId" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input class="form-control-range" type="text" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Value">Value</label>
+        <input class="form-control-range" type="number" asp-for="Value" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Domain">Domain</label>
+        <input class="form-control-range" type="text" asp-for="Domain" />
+    </div>
+    <button class="btn btn-secondary" type="submit">Modify a constant</button>
+</form>

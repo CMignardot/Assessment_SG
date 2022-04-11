@@ -1,0 +1,46 @@
+﻿@model EFCs
+
+@{
+    ViewData["Title"] = "Expressions";
+}
+
+<h1 class="bg-info text-white">Expressions</h1>
+<a class="btn btn-block btn-success" asp-action="AddNewExpression">Add a New Expression</a>
+<div>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Inputs</th>
+            <th>Linked function</th>
+            <th>Linked constant</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            @foreach (Expression e in Model.Expressions)
+            {
+                <tr>
+                    <td>@e.ExpressionId</td>
+                    <td>@e.Name</td>
+                    <td>@e.Inputs</td>
+                    <td>@(Model.Functions.FirstOrDefault(f=>f.FunctionId == e.FunctionId)?.Name ?? "none")</td>
+                    <td>@(Model.Constants.FirstOrDefault(c => c.ConstantId == e.ConstantId)?.Name ?? "none")</td>
+                    <td>
+                        <a asp-route-id="@e.ExpressionId" class="btn btn-block btn-dark" asp-action="ModifyExpression">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-route-id="@e.ExpressionId" class="btn btn-block btn-dark" asp-action="EvaluateExpression">Evaluate</a>
+                    </td>
+                    <td>
+                        <form asp-route-id="@e.ExpressionId" method="post" asp-action="RemoveExpression">
+                            <input class="btn-warning btn btn-block" value=”Remove” type="submit" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

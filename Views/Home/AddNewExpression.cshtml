@@ -1,0 +1,31 @@
+﻿@model AddExpressionModel
+
+@{
+    ViewData["Title"] = "Add a New Expression";
+}
+
+<h1 class="bg-info text-white">Add a New Expression</h1>
+<a class="btn btn-block btn-success" asp-action="Index">Show all Expressions</a>
+
+
+<form enctype="application/x-www-form-urlencoded" method="post">
+    <div>
+        <label>Name</label>
+        <input class="form-control-range" asp-for="Expression.Name" type="text" />
+        <label>Inputs</label>
+        <input class="form-control-range" asp-for="Expression.Inputs" type="text" /><br />
+        <div class="form-group">
+            <label asp-for="FunctionId">Function</label>
+            <select asp-for="FunctionId" class="form-control" asp-items="Model.Functions">
+                <option value="">-- Select Function --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConstantId">Constant</label>
+            <select asp-for="ConstantId" class="form-control" asp-items="Model.Constants">
+                <option value="">-- Select Constant --</option>
+            </select>
+        </div>
+        <input class="btn btn-secondary" value="Add New" type="submit" />
+    </div>
+</form>

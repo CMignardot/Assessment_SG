@@ -1,0 +1,36 @@
+﻿@model AddExpressionModel
+
+@{
+    ViewData["Title"] = "Modify an Expression";
+}
+
+<h1 class="bg-info text-white">Modify an Expression</h1>
+<a class="btn btn-block btn-success" asp-action="Index">Show all Expressions</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Expression.ExpressionId">No.</label>
+        <input class="form-control-range" type="text" asp-for="Expression.ExpressionId" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Expression.Name">Name</label>
+        <input class="form-control-range" type="text" asp-for="Expression.Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Expression.Inputs">Inputs</label>
+        <input class="form-control-range" type="text" asp-for="Expression.Inputs" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FunctionId">Function</label>
+        <select asp-for="FunctionId" class="form-control" asp-items="Model.Functions">
+            <option value="">-- Select Function --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConstantId">Constant</label>
+        <select asp-for="ConstantId" class="form-control" asp-items="Model.Constants">
+            <option value="">-- Select Constant --</option>
+        </select>
+    </div>
+    <button class="btn btn-secondary" type="submit">Modify an expression</button>
+</form>

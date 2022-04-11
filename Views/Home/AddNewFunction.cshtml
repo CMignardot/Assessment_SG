@@ -1,0 +1,26 @@
+﻿@model Function
+
+@{
+    ViewData["Title"] = "Add a New Function";
+}
+
+<h1 class="bg-info text-white">Add a New Function</h1>
+<a class="btn btn-block btn-success" asp-action="ShowFunction">Show all Functions</a>
+
+<div class="text-danger" asp-validation-summary="All"></div>
+
+<form enctype="application/x-www-form-urlencoded" method="post">
+    <div>
+        <label>Name</label>
+        <input class="form-control-range" asp-for="Name" type="text" />
+        <label>Formula</label>
+        <input class="form-control-range" asp-for="Formula" type="text" /><br />
+        <label>Input domains</label>
+        <input class="form-control-range" asp-for="InputDomains" type="text" />
+        <label>Output domain</label>
+        <input class="form-control-range" asp-for="OutputDomain" type="text" />
+        <label>Co-domain</label>
+        <input class="form-control-range" asp-for="CoDomain" type="text" />
+        <input class="btn btn-secondary" value="Add New" type="submit" />
+    </div>
+</form>

@@ -1,0 +1,15 @@
+﻿@model EvaluateExpression
+
+@{
+    ViewData["Title"] = "Evaluate Expression";
+}
+
+<h1 class="bg-info text-white">Expression</h1>
+<a class="btn btn-block btn-success" asp-action="Index">Show all Expressions</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Evaluation</label>
+        <input class="form-control-range" type="text" asp-for="Evaluation" readonly />
+    </div>
+</form>

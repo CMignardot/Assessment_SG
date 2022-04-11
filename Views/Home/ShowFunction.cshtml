@@ -1,0 +1,44 @@
+﻿@model List<Function>
+
+@{
+    ViewData["Title"] = "Functions";
+}
+
+<h1 class="bg-info text-white">Functions</h1>
+<a class="btn btn-block btn-success" asp-action="AddNewFunction">Add a New Function</a>
+<div>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Formula</th>
+            <th>InputDomains</th>
+            <th>OutputDomain</th>
+            <th>CoDomain</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            @foreach (Function e in Model)
+            {
+                <tr>
+                    <td>@e.FunctionId</td>
+                    <td>@e.Name</td>
+                    <td>@e.Formula</td>
+                    <td>@e.InputDomains</td>
+                    <td>@e.OutputDomain</td>
+                    <td>@e.CoDomain</td>
+                    <td>
+                        <a asp-route-id="@e.FunctionId" class="btn btn-block btn-dark" asp-action="ModifyFunction">Edit</a>
+                    </td>
+                    <td>
+                        <form asp-route-id="@e.FunctionId" method="post" asp-action="RemoveFunction">
+                            <input class="btn-warning btn btn-block" value=”Remove” type="submit" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

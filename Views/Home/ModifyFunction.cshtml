@@ -1,0 +1,36 @@
+﻿@model Function
+
+@{
+    ViewData["Title"] = "Modify a Function";
+}
+
+<h1 class="bg-info text-white">Modify a Function</h1>
+<a class="btn btn-block btn-success" asp-action="ShowFunction">Show all Functions</a>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="FunctionId">No.</label>
+        <input class="form-control-range" type="text" asp-for="FunctionId" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input class="form-control-range" type="text" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Formula">Formula</label>
+        <input class="form-control-range" type="text" asp-for="Formula" />
+    </div>
+    <div class="form-group">
+        <label asp-for="InputDomains">InputDomains</label>
+        <input class="form-control-range" type="text" asp-for="InputDomains" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OutputDomain">OutputDomain</label>
+        <input class="form-control-range" type="text" asp-for="OutputDomain" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CoDomain">CoDomain</label>
+        <input class="form-control-range" type="text" asp-for="CoDomain" />
+    </div>
+    <button class="btn btn-secondary" type="submit">Modify a function</button>
+</form>
